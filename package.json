@@ -1,0 +1,24 @@
+{
+  "name": "ws-dot-properties",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "lerna:publish": "npx lerna publish",
+    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
+  },
+  "resolutions": {},
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/node": "*"
+  },
+  "peerDependencies": {
+    "lerna": "^3"
+  }
+}
