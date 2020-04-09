@@ -1,6 +1,6 @@
 {
   "name": "dot-properties-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "load / save java.util.Properties.",
   "keywords": [
     "load",
@@ -23,9 +23,20 @@
     "lines",
     "save"
   ],
+  "homepage": "https://github.com/bluelovers/ws-dot-properties/tree/master/packages/dot-properties-loader#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-dot-properties/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-dot-properties.git"
+  },
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
