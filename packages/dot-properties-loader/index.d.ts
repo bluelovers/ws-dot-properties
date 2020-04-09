@@ -14,7 +14,7 @@ export declare class DotProperties {
         escapeFn?: (value: Line[1]) => Line[1];
     }>);
     get tree(): Tree;
-    get lines(): Line[];
+    get lines(): (string | string[])[];
     get(key: string, defaultValue?: string): string | Tree;
     set(key: string, value: string): this;
     toString(): string;
@@ -23,7 +23,7 @@ export declare class DotProperties {
         tree: {
             [x: string]: string | Tree;
         };
-        lines: Line[];
+        lines: (string | string[])[];
     };
     stringify(options?: StringifyOptions & {
         disableEscape?: boolean;

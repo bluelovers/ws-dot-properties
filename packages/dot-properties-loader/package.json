@@ -56,5 +56,11 @@
     "dot-properties": "^1.0.0",
     "ts-type": "^1.2.15"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@bluelovers/fast-glob": "^3.0.4",
+    "@types/bluebird": "^3.5.30",
+    "@types/fs-extra": "^8.1.0",
+    "array-hyper-unique": "^1.1.0",
+    "fs-extra": "^9.0.0"
+  }
 }
