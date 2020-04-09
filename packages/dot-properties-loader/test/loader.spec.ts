@@ -3,7 +3,7 @@
  */
 
 import DotProperties from '../index';
-import { join } from 'path';
+import { join, basename } from 'path';
 
 describe('load utf8', () => {
 
@@ -38,26 +38,38 @@ describe('load utf8', () => {
 
 describe('load', () => {
 
-	it('ActionsBundle.properties', function ()
-	{
-		const dp = new DotProperties({
-			file: join(__dirname, './res/ActionsBundle.properties')
-		})
+	testFile(join(__dirname, 'res', 'ActionsBundle.properties'));
 
-		expect(dp.tree).toMatchSnapshot();
-		expect(dp.lines).toMatchSnapshot();
-		expect(dp.stringify()).toMatchSnapshot();
-	});
+	testFile(join(__dirname, 'res', 'AjJpsBundle.properties'));
 
-	it('AjJpsBundle.properties', function ()
-	{
-		const dp = new DotProperties({
-			file: join(__dirname, './res/AjJpsBundle.properties')
-		})
+	testFile(join(__dirname, 'res', 'test.properties'));
 
-		expect(dp.tree).toMatchSnapshot();
-		expect(dp.lines).toMatchSnapshot();
-		expect(dp.stringify()).toMatchSnapshot();
-	});
+	testFile(join(__dirname, 'res', 'example.properties'))
 
 });
+
+function testFile(file: string)
+{
+	it(basename(file), function ()
+	{
+		const dp = new DotProperties({
+			file
+		})
+
+		dp.save({
+			file: file + '.tmp.1.properties',
+		})
+
+		dp.save({
+			file: file + '.tmp.2.properties',
+			options: {
+				latin1: false,
+			}
+		})
+
+		expect(dp.tree).toMatchSnapshot();
+		expect(dp.lines).toMatchSnapshot();
+		expect(dp.stringify()).toMatchSnapshot();
+
+	});
+}

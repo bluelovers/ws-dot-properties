@@ -94,3 +94,5 @@ jest.config.js.map
 .nowignore
 */**/.github
 !/.github
+*.tmp
+*.tmp.*

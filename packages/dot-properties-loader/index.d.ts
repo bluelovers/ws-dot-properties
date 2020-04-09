@@ -10,11 +10,9 @@ export declare class DotProperties {
     constructor(options: ITSRequireAtLeastOne<{
         file?: string;
         source?: string | Buffer;
-        disableEscape?: boolean;
-        escapeFn?: (value: ILine[1]) => ILine[1];
     }>);
     get tree(): ITree;
-    get lines(): (string | string[])[];
+    get lines(): ILine[];
     get(key: string, defaultValue?: string): string | ITree;
     set(key: string, value: string): this;
     toString(): string;
@@ -23,12 +21,9 @@ export declare class DotProperties {
         tree: {
             [x: string]: string | ITree;
         };
-        lines: (string | string[])[];
+        lines: ILine[];
     };
-    stringify(options?: IStringifyOptions & {
-        disableEscape?: boolean;
-        escapeFn?: (value: ILine[1]) => ILine[1];
-    }): string;
+    stringify(options?: IStringifyOptions): string;
     save(opts?: {
         file?: string;
         options?: IStringifyOptions;

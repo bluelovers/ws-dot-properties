@@ -4,7 +4,6 @@
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { readFileSync, realpathSync, writeFileSync } from 'fs';
 import { parse, ITree, stringify, IStringifyOptions, ILine, parseLines } from 'dot-properties2';
-import { escape } from './lib/util';
 
 export class DotProperties
 {
@@ -12,16 +11,11 @@ export class DotProperties
 	#source: Buffer;
 	#tree: ITree;
 	#lines: ILine[];
-	#options: {
-		disableEscape?: boolean,
-		escapeFn?: (value: ILine[1]) => ILine[1],
-	};
+	#options: {};
 
 	constructor(options: ITSRequireAtLeastOne<{
 		file?: string,
 		source?: string | Buffer,
-		disableEscape?: boolean,
-		escapeFn?: (value: ILine[1]) => ILine[1],
 	}>)
 	{
 		let source: Buffer = options.source as any;
@@ -50,10 +44,7 @@ export class DotProperties
 		this.#tree = parse(this.#source.toString())
 		this.#lines = parseLines(this.#source.toString())
 
-		this.#options = {
-			disableEscape: options.disableEscape,
-			escapeFn: options.escapeFn,
-		}
+		this.#options = {}
 	}
 
 	get tree()
@@ -125,13 +116,9 @@ export class DotProperties
 		}
 	}
 
-	stringify(options?: IStringifyOptions & {
-		disableEscape?: boolean,
-		escapeFn?: (value: ILine[1]) => ILine[1],
-	})
+	stringify(options?: IStringifyOptions)
 	{
 		const { lines, tree } = this._lines();
-		const { escapeFn = this.#options.escapeFn ?? escape, disableEscape = this.#options.disableEscape } = options || {};
 
 		let newLines = [
 			...lines,
@@ -142,13 +129,9 @@ export class DotProperties
 			{
 				newLines.push(line);
 			}
-			else if (disableEscape)
-			{
-				newLines.push(line as string[]);
-			}
 			else
 			{
-				newLines.push([line[0], escapeFn(line[1] as string)]);
+				newLines.push(line as string[]);
 			}
 
 			return newLines
