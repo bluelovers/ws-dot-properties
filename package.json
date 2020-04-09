@@ -16,7 +16,10 @@
   "resolutions": {},
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "*"
+    "@types/jest": "^25.2.1",
+    "@types/node": "*",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1"
   },
   "peerDependencies": {
     "lerna": "^3"

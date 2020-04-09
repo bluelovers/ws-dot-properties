@@ -1,6 +1,6 @@
 # README.md
 
-
+   load / save java.util.Properties.
 
 ## install
 

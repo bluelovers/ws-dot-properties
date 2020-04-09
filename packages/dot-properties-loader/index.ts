@@ -13,12 +13,14 @@ export class DotProperties
 	#lines: Line[];
 	#options: {
 		disableEscape?: boolean,
+		escapeFn?: (value: Line[1]) => Line[1],
 	};
 
 	constructor(options: ITSRequireAtLeastOne<{
 		file?: string,
 		source?: string | Buffer,
 		disableEscape?: boolean,
+		escapeFn?: (value: Line[1]) => Line[1],
 	}>)
 	{
 		let source: Buffer = options.source as any;
@@ -49,6 +51,7 @@ export class DotProperties
 
 		this.#options = {
 			disableEscape: options.disableEscape,
+			escapeFn: options.escapeFn,
 		}
 	}
 
@@ -62,7 +65,7 @@ export class DotProperties
 		return this.#lines
 	}
 
-	get(key: string, defaultValue: string)
+	get(key: string, defaultValue?: string)
 	{
 		return this.#tree[key] ?? defaultValue;
 	}
@@ -121,9 +124,13 @@ export class DotProperties
 		}
 	}
 
-	stringify(options?: StringifyOptions)
+	stringify(options?: StringifyOptions & {
+		disableEscape?: boolean,
+		escapeFn?: (value: Line[1]) => Line[1],
+	})
 	{
 		const { lines, tree } = this._lines();
+		const { escapeFn = this.#options.escapeFn ?? escape, disableEscape = this.#options.disableEscape } = options || {};
 
 		let newLines = [
 			...lines,
@@ -134,13 +141,13 @@ export class DotProperties
 			{
 				newLines.push(line);
 			}
-			else if (this.#options.disableEscape)
+			else if (disableEscape)
 			{
 				newLines.push(line as string[]);
 			}
 			else
 			{
-				newLines.push([line[0], escape(line[1] as string)]);
+				newLines.push([line[0], escapeFn(line[1] as string)]);
 			}
 
 			return newLines
