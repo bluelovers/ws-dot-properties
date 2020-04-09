@@ -1,6 +1,6 @@
 {
   "name": "dot-properties-loader",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "load / save java.util.Properties.",
   "keywords": [
     "load",
@@ -45,6 +45,5 @@
     "dot-properties": "^1.0.0",
     "ts-type": "^1.2.15"
   },
-  "devDependencies": {},
-  "gitHead": "7ed2ee95"
+  "devDependencies": {}
 }
