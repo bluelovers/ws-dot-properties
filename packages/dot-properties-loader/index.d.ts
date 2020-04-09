@@ -3,7 +3,7 @@
  * Created by user on 2020/4/9.
  */
 import { ITSRequireAtLeastOne } from 'ts-type';
-import { Tree, StringifyOptions, Line } from 'dot-properties/lib';
+import { ITree, IStringifyOptions, ILine } from 'dot-properties2';
 export declare class DotProperties {
     #private;
     file: string;
@@ -11,28 +11,27 @@ export declare class DotProperties {
         file?: string;
         source?: string | Buffer;
         disableEscape?: boolean;
-        escapeFn?: (value: Line[1]) => Line[1];
+        escapeFn?: (value: ILine[1]) => ILine[1];
     }>);
-    get tree(): Tree;
+    get tree(): ITree;
     get lines(): (string | string[])[];
-    get(key: string, defaultValue?: string): string | Tree;
+    get(key: string, defaultValue?: string): string | ITree;
     set(key: string, value: string): this;
     toString(): string;
     refresh(): this;
     protected _lines(): {
         tree: {
-            [x: string]: string | Tree;
+            [x: string]: string | ITree;
         };
         lines: (string | string[])[];
     };
-    stringify(options?: StringifyOptions & {
+    stringify(options?: IStringifyOptions & {
         disableEscape?: boolean;
-        escapeFn?: (value: Line[1]) => Line[1];
+        escapeFn?: (value: ILine[1]) => ILine[1];
     }): string;
     save(opts?: {
         file?: string;
-        options?: StringifyOptions;
+        options?: IStringifyOptions;
     }): this;
 }
-export declare function escape(str: string): string;
 export default DotProperties;

@@ -53,7 +53,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "dot-properties": "^1.0.0",
+    "dot-properties2": "^1.0.0",
     "ts-type": "^1.2.15"
   },
   "devDependencies": {

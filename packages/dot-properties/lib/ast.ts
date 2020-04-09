@@ -1,38 +1,47 @@
-class Node {
-  constructor(type, range) {
-    this.type = type
-    if (range) this.range = range
-  }
+export type Type = 'COMMENT' | 'EMPTY_LINE' | 'PAIR'
+
+export type INodes = Comment | EmptyLine | Pair;
+
+export class Node<T extends Type = Type, R extends number[] = [number, number] | [number, number, number, number]>
+{
+	constructor(public type: T, public range?: R)
+	{
+
+	}
 }
 
-class Pair extends Node {
-  constructor(key, value, range) {
-    super('PAIR', range)
-    this.key = key
-    this.value = value
-  }
+export class Pair extends Node<'PAIR', [number, number, number, number]>
+{
+	constructor(public key: string, public value: string, range?: [number, number, number, number])
+	{
+		super('PAIR', range)
+	}
 
-  separator(src) {
-    if (Array.isArray(this.range) && this.range.length >= 3) {
-      // eslint-disable-next-line no-unused-vars
-      const [_, start, end] = this.range
-      return src.slice(start, end)
-    }
-    return null
-  }
+	separator(src: string)
+	{
+		if (Array.isArray(this.range) && this.range.length >= 3)
+		{
+			// eslint-disable-next-line no-unused-vars
+			const [_, start, end] = this.range
+			return src.slice(start, end)
+		}
+		return null
+	}
 }
 
-class Comment extends Node {
-  constructor(comment, range) {
-    super('COMMENT', range)
-    this.comment = comment
-  }
+export class Comment extends Node<'COMMENT', [number, number]>
+{
+	constructor(public comment: string, range?: [number, number])
+	{
+		super('COMMENT', range)
+	}
 }
 
-class EmptyLine extends Node {
-  constructor(range) {
-    super('EMPTY_LINE', range)
-  }
+export class EmptyLine extends Node<'EMPTY_LINE', [number, number]>
+{
+	constructor(range?: [number, number])
+	{
+		super('EMPTY_LINE', range)
+	}
 }
 
-module.exports = { Node, Pair, Comment, EmptyLine }

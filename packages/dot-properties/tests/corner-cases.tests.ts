@@ -1,6 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-const { Pair, parse, parseLines, stringify } = require('../lib/index')
+import fs from 'fs';
+
+import path from 'path';
+
+import { Pair, parse, parseLines, stringify } from '../index';
+
+
 
 describe('lines', () => {
   const srcPath = path.resolve(
@@ -163,7 +167,9 @@ describe('AST', () => {
   test('pair separator', () => {
     const src = 'key:\nkey2: value2'
     const ast = parseLines(src, true)
+    // @ts-ignore
     expect(ast[0].separator(src)).toBe(':')
+    // @ts-ignore
     expect(ast[1].separator(src)).toBe(': ')
   })
 
@@ -171,6 +177,7 @@ describe('AST', () => {
     const src = 'key:\nkey2: value2'
     const ast = parseLines(src, true)
     ast.push(new Pair('key3', 'value3'))
+    // @ts-ignore
     expect(ast[2].separator(src)).toBeNull()
 
     expect(parse(ast)).toMatchObject({

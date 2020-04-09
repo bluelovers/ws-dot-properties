@@ -1,9 +1,6 @@
 {
-  "name": "dot-properties",
+  "name": "dot-properties2",
   "version": "1.0.0",
-  "license": "MIT",
-  "author": "Eemeli Aro <eemeli@gmail.com>",
-  "repository": "github:eemeli/dot-properties",
   "description": "Parse & stringify .properties files",
   "keywords": [
     "properties",
@@ -12,33 +9,29 @@
     "bundle",
     "i18n"
   ],
-  "types": "./lib/index.d.ts",
-  "typings": "./lib/index.d.ts",
-  "main": "./lib/index.js",
-  "files": [
-    "lib/"
-  ],
+  "homepage": "https://github.com/eemeli/dot-properties#readme",
+  "bugs": {
+    "url": "https://github.com/eemeli/dot-properties/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eemeli/dot-properties.git"
+  },
+  "license": "MIT",
+  "author": "Eemeli Aro <eemeli@gmail.com>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
   "scripts": {
     "lint": "eslint .",
-    "test": "jest"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "testMatch": [
-      "**/tests/*.js"
-    ]
-  },
-  "prettier": {
-    "arrowParens": "avoid",
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "jest": "^25.3.0",
-    "prettier": "^2.0.4"
+    "test": "jest",
+    "npm:publish": "npm publish",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   }
 }

@@ -2,25 +2,26 @@
  * Created by user on 2020/4/9.
  */
 import { ITSRequireAtLeastOne } from 'ts-type';
-import { readFile, readFileSync, realpathSync, writeFile, writeFileSync } from 'fs';
-import { parse, Tree, stringify, StringifyOptions, Line, parseLines } from 'dot-properties/lib';
+import { readFileSync, realpathSync, writeFileSync } from 'fs';
+import { parse, ITree, stringify, IStringifyOptions, ILine, parseLines } from 'dot-properties2';
+import { escape } from './lib/util';
 
 export class DotProperties
 {
 	file: string;
 	#source: Buffer;
-	#tree: Tree;
-	#lines: Line[];
+	#tree: ITree;
+	#lines: ILine[];
 	#options: {
 		disableEscape?: boolean,
-		escapeFn?: (value: Line[1]) => Line[1],
+		escapeFn?: (value: ILine[1]) => ILine[1],
 	};
 
 	constructor(options: ITSRequireAtLeastOne<{
 		file?: string,
 		source?: string | Buffer,
 		disableEscape?: boolean,
-		escapeFn?: (value: Line[1]) => Line[1],
+		escapeFn?: (value: ILine[1]) => ILine[1],
 	}>)
 	{
 		let source: Buffer = options.source as any;
@@ -124,9 +125,9 @@ export class DotProperties
 		}
 	}
 
-	stringify(options?: StringifyOptions & {
+	stringify(options?: IStringifyOptions & {
 		disableEscape?: boolean,
-		escapeFn?: (value: Line[1]) => Line[1],
+		escapeFn?: (value: ILine[1]) => ILine[1],
 	})
 	{
 		const { lines, tree } = this._lines();
@@ -151,7 +152,7 @@ export class DotProperties
 			}
 
 			return newLines
-			}, [] as Line[])
+			}, [] as ILine[])
 		;
 
 		return stringify(newLines, {
@@ -162,7 +163,7 @@ export class DotProperties
 
 	save(opts?: {
 		file?: string,
-		options?: StringifyOptions
+		options?: IStringifyOptions
 	})
 	{
 		writeFileSync(opts?.file ?? this.file, this.stringify(opts?.options))
@@ -170,13 +171,6 @@ export class DotProperties
 		return this;
 	}
 
-}
-
-export function escape(str: string)
-{
-	return str.replace(/([^\x00-\xFF])/ug, ($0, $1: string) => {
-		return '\\u' + $1.codePointAt(0).toString(16)
-	});
 }
 
 export default DotProperties

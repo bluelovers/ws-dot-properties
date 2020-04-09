@@ -1,6 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-const { parse, parseLines, stringify } = require('../lib/index')
+import fs from 'fs';
+
+import path from 'path';
+
+import { parse, parseLines, stringify } from '../index';
+
+
 
 function testCase({
   name,

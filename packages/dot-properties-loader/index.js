@@ -14,9 +14,10 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _source, _tree, _lines_1, _options;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.escape = exports.DotProperties = void 0;
+exports.DotProperties = void 0;
 const fs_1 = require("fs");
-const lib_1 = require("dot-properties/lib");
+const dot_properties2_1 = require("dot-properties2");
+const util_1 = require("./lib/util");
 class DotProperties {
     constructor(options) {
         _source.set(this, void 0);
@@ -38,8 +39,8 @@ class DotProperties {
             source = fs_1.readFileSync(this.file = file);
         }
         __classPrivateFieldSet(this, _source, source);
-        __classPrivateFieldSet(this, _tree, lib_1.parse(__classPrivateFieldGet(this, _source).toString()));
-        __classPrivateFieldSet(this, _lines_1, lib_1.parseLines(__classPrivateFieldGet(this, _source).toString()));
+        __classPrivateFieldSet(this, _tree, dot_properties2_1.parse(__classPrivateFieldGet(this, _source).toString()));
+        __classPrivateFieldSet(this, _lines_1, dot_properties2_1.parseLines(__classPrivateFieldGet(this, _source).toString()));
         __classPrivateFieldSet(this, _options, {
             disableEscape: options.disableEscape,
             escapeFn: options.escapeFn,
@@ -92,7 +93,7 @@ class DotProperties {
     stringify(options) {
         var _a;
         const { lines, tree } = this._lines();
-        const { escapeFn = (_a = __classPrivateFieldGet(this, _options).escapeFn) !== null && _a !== void 0 ? _a : escape, disableEscape = __classPrivateFieldGet(this, _options).disableEscape } = options || {};
+        const { escapeFn = (_a = __classPrivateFieldGet(this, _options).escapeFn) !== null && _a !== void 0 ? _a : util_1.escape, disableEscape = __classPrivateFieldGet(this, _options).disableEscape } = options || {};
         let newLines = [
             ...lines,
             ...Object.entries(tree),
@@ -108,7 +109,7 @@ class DotProperties {
             }
             return newLines;
         }, []);
-        return lib_1.stringify(newLines, {
+        return dot_properties2_1.stringify(newLines, {
             lineWidth: null,
             ...(options || {}),
         });
@@ -121,11 +122,5 @@ class DotProperties {
 }
 exports.DotProperties = DotProperties;
 _source = new WeakMap(), _tree = new WeakMap(), _lines_1 = new WeakMap(), _options = new WeakMap();
-function escape(str) {
-    return str.replace(/([^\x00-\xFF])/ug, ($0, $1) => {
-        return '\\u' + $1.codePointAt(0).toString(16);
-    });
-}
-exports.escape = escape;
 exports.default = DotProperties;
 //# sourceMappingURL=index.js.map
