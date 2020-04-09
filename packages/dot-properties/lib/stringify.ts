@@ -2,14 +2,17 @@ import { Pair, Comment, EmptyLine } from './ast';
 import { IStringifyOptions } from './types';
 import { escape, escapeNonPrintable } from './escape';
 
-export function pairWithSeparator(key, value, sep)
+export function pairWithSeparator(key: string, value: string, sep: string, latin1?: boolean)
 {
-	return escape(key).replace(/[ =:]/g, '\\$&') +
+	return escape(key, latin1).replace(/[ =:]/g, '\\$&') +
 		sep +
-		escape(value).replace(/^ /, '\\ ');
+		escape(value, latin1).replace(/^ /, '\\ ');
 }
 
-export function commentWithPrefix(str, prefix) { return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix); }
+export function commentWithPrefix(str, prefix)
+{
+	return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix);
+}
 
 export function getFold({ indent, latin1, lineWidth, newline })
 {
@@ -158,9 +161,9 @@ export function stringify(
 					return ''
 
 				case Array.isArray(line):
-					return foldLine(pairWithSeparator(line[0], line[1], keySep))
+					return foldLine(pairWithSeparator(line[0], line[1], keySep, latin1))
 				case line instanceof Pair:
-					return foldLine(pairWithSeparator(line.key, line.value, keySep))
+					return foldLine(pairWithSeparator(line.key, line.value, keySep, latin1))
 
 				case line instanceof Comment:
 					return foldComment(commentWithPrefix(line.comment, commentPrefix))

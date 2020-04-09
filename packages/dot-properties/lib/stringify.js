@@ -3,13 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringify = exports.toLines = exports.getFold = exports.commentWithPrefix = exports.pairWithSeparator = void 0;
 const ast_1 = require("./ast");
 const escape_1 = require("./escape");
-function pairWithSeparator(key, value, sep) {
-    return escape_1.escape(key).replace(/[ =:]/g, '\\$&') +
+function pairWithSeparator(key, value, sep, latin1) {
+    return escape_1.escape(key, latin1).replace(/[ =:]/g, '\\$&') +
         sep +
-        escape_1.escape(value).replace(/^ /, '\\ ');
+        escape_1.escape(value, latin1).replace(/^ /, '\\ ');
 }
 exports.pairWithSeparator = pairWithSeparator;
-function commentWithPrefix(str, prefix) { return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix); }
+function commentWithPrefix(str, prefix) {
+    return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix);
+}
 exports.commentWithPrefix = commentWithPrefix;
 function getFold({ indent, latin1, lineWidth, newline }) {
     return line => {
@@ -132,9 +134,9 @@ function stringify(input, { commentPrefix = '# ', defaultKey = '', indent = '   
             case line instanceof ast_1.EmptyLine:
                 return '';
             case Array.isArray(line):
-                return foldLine(pairWithSeparator(line[0], line[1], keySep));
+                return foldLine(pairWithSeparator(line[0], line[1], keySep, latin1));
             case line instanceof ast_1.Pair:
-                return foldLine(pairWithSeparator(line.key, line.value, keySep));
+                return foldLine(pairWithSeparator(line.key, line.value, keySep, latin1));
             case line instanceof ast_1.Comment:
                 return foldComment(commentWithPrefix(line.comment, commentPrefix));
             default:

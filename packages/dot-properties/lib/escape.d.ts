@@ -1,5 +1,3 @@
-/**
- * Created by user on 2020/4/10.
- */
-export declare function escapeNonPrintable(str: any, latin1: any): string;
-export declare function escape(str: any): string;
+export declare function escapeNonPrintable(str: any, latin1?: boolean): string;
+export declare function escape(str: string, latin1?: boolean): any;
+export declare function escapeNonLatin1(str: any, latin1?: boolean): any;

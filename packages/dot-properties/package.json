@@ -33,5 +33,10 @@
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
+    "regexpu-core": "^4.7.0"
   }
 }

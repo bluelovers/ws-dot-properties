@@ -1,5 +1,5 @@
 import { IStringifyOptions } from './types';
-export declare function pairWithSeparator(key: any, value: any, sep: any): string;
+export declare function pairWithSeparator(key: string, value: string, sep: string, latin1?: boolean): string;
 export declare function commentWithPrefix(str: any, prefix: any): any;
 export declare function getFold({ indent, latin1, lineWidth, newline }: {
     indent: any;

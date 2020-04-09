@@ -1,0 +1,709 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@js.properties duplicates.properties 1`] = `
+Object {
+  "dup": "duplicate",
+  "foo": "baz",
+  "quux": "quuz",
+  "qux": "quuz",
+}
+`;
+
+exports[`@js.properties duplicates.properties 2`] = `
+Object {
+  "dup": "duplicate",
+  "foo": "baz",
+  "quux": "quuz",
+  "qux": "quuz",
+}
+`;
+
+exports[`@js.properties duplicates.properties 3`] = `
+Object {
+  "dup": "duplicate",
+  "foo": "baz",
+  "quux": "quuz",
+  "qux": "quuz",
+}
+`;
+
+exports[`@js.properties duplicates.properties 4`] = `
+Object {
+  "dup": "duplicate",
+  "foo": "baz",
+  "quux": "quuz",
+  "qux": "quuz",
+}
+`;
+
+exports[`@js.properties empty-key-element.properties 1`] = `
+Object {
+  "": "",
+  "foo": "",
+}
+`;
+
+exports[`@js.properties empty-key-element.properties 2`] = `
+Object {
+  "": "",
+  "foo": "",
+}
+`;
+
+exports[`@js.properties empty-key-element.properties 3`] = `
+Object {
+  "": "",
+  "foo": "",
+}
+`;
+
+exports[`@js.properties empty-key-element.properties 4`] = `
+Object {
+  "": "",
+  "foo": "",
+}
+`;
+
+exports[`@js.properties escaped.properties 1`] = `
+Object {
+  "UUWXYZU": "UUghijU",
+  "a=b": "c=d=e",
+  "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz": "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz",
+  "f	o	o": "bar",
+  "f
+o
+o": "b
+a
+r",
+  "f:g": "h:i:j",
+  "k l": "m n o",
+  "uሴu": "u噸u",
+  "uꯍu": "u췯u",
+}
+`;
+
+exports[`@js.properties escaped.properties 2`] = `
+Object {
+  "UUWXYZU": "UUghijU",
+  "a=b": "c=d=e",
+  "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz": "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz",
+  "f	o	o": "bar",
+  "f
+o
+o": "b
+a
+r",
+  "f:g": "h:i:j",
+  "k l": "m n o",
+  "uሴu": "u噸u",
+  "uꯍu": "u췯u",
+}
+`;
+
+exports[`@js.properties escaped.properties 3`] = `
+Object {
+  "UUWXYZU": "UUghijU",
+  "a=b": "c=d=e",
+  "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz": "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz",
+  "f	o	o": "bar",
+  "f
+o
+o": "b
+a
+r",
+  "f:g": "h:i:j",
+  "k l": "m n o",
+  "uሴu": "u噸u",
+  "uꯍu": "u췯u",
+}
+`;
+
+exports[`@js.properties escaped.properties 4`] = `
+Object {
+  "UUWXYZU": "UUghijU",
+  "a=b": "c=d=e",
+  "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz": "aabbccddeefgghhiijjkkllmmn
+ooppqqr
+sst	vvwwxxyyzz",
+  "f	o	o": "bar",
+  "f
+o
+o": "b
+a
+r",
+  "f:g": "h:i:j",
+  "k l": "m n o",
+  "uሴu": "u噸u",
+  "uꯍu": "u췯u",
+}
+`;
+
+exports[`@js.properties final-slash.properties 1`] = `
+Object {
+  "bar": "z",
+  "baz": "shh",
+  "foo": "a\\\\b",
+}
+`;
+
+exports[`@js.properties final-slash.properties 2`] = `
+Object {
+  "bar": "z",
+  "baz": "shh",
+  "foo": "a\\\\b",
+}
+`;
+
+exports[`@js.properties final-slash.properties 3`] = `
+Object {
+  "bar": "z",
+  "baz": "shh",
+  "foo": "a\\\\b",
+}
+`;
+
+exports[`@js.properties final-slash.properties 4`] = `
+Object {
+  "bar": "z",
+  "baz": "shh",
+  "foo": "a\\\\b",
+}
+`;
+
+exports[`@js.properties line-terminator-cr.properties 1`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-cr.properties 2`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-cr.properties 3`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-cr.properties 4`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-crlf.properties 1`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-crlf.properties 2`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-crlf.properties 3`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-crlf.properties 4`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-lf.properties 1`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-lf.properties 2`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-lf.properties 3`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-lf.properties 4`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-mixed.properties 1`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+  "quux": "quuz",
+}
+`;
+
+exports[`@js.properties line-terminator-mixed.properties 2`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+  "quux": "quuz",
+}
+`;
+
+exports[`@js.properties line-terminator-mixed.properties 3`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+  "quux": "quuz",
+}
+`;
+
+exports[`@js.properties line-terminator-mixed.properties 4`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+  "quux": "quuz",
+}
+`;
+
+exports[`@js.properties line-terminator-noeol.properties 1`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-noeol.properties 2`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-noeol.properties 3`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties line-terminator-noeol.properties 4`] = `
+Object {
+  "baz": "qux",
+  "foo": "bar",
+}
+`;
+
+exports[`@js.properties multiline.properties 1`] = `
+Object {
+  "bar001122": "baz",
+  "foo": "AaBbCc",
+  "multilinename": "multiline value",
+  "qux": "quux",
+}
+`;
+
+exports[`@js.properties multiline.properties 2`] = `
+Object {
+  "bar001122": "baz",
+  "foo": "AaBbCc",
+  "multilinename": "multiline value",
+  "qux": "quux",
+}
+`;
+
+exports[`@js.properties multiline.properties 3`] = `
+Object {
+  "bar001122": "baz",
+  "foo": "AaBbCc",
+  "multilinename": "multiline value",
+  "qux": "quux",
+}
+`;
+
+exports[`@js.properties multiline.properties 4`] = `
+Object {
+  "bar001122": "baz",
+  "foo": "AaBbCc",
+  "multilinename": "multiline value",
+  "qux": "quux",
+}
+`;
+
+exports[`@js.properties namespaced properties with path 1`] = `
+Object {
+  "a": Object {
+    "b1": "a.b1",
+    "b2": Object {
+      "c1": "a.b2.c1",
+      "c2": "a.b2.c2",
+    },
+  },
+  "foo": Object {
+    "": "A.B.C",
+    "bar": "abc",
+    "baz": "def",
+  },
+  "qux": Object {
+    "quux": "quuz",
+  },
+}
+`;
+
+exports[`@js.properties namespaced properties with path 2`] = `
+Object {
+  "a": Object {
+    "b1": "a.b1",
+    "b2": Object {
+      "c1": "a.b2.c1",
+      "c2": "a.b2.c2",
+    },
+  },
+  "foo": Object {
+    "": "A.B.C",
+    "bar": "abc",
+    "baz": "def",
+  },
+  "qux": Object {
+    "quux": "quuz",
+  },
+}
+`;
+
+exports[`@js.properties namespaced properties with path 3`] = `
+Object {
+  "a": Object {
+    "b1": "a.b1",
+    "b2": Object {
+      "c1": "a.b2.c1",
+      "c2": "a.b2.c2",
+    },
+  },
+  "foo": Object {
+    "": "A.B.C",
+    "bar": "abc",
+    "baz": "def",
+  },
+  "qux": Object {
+    "quux": "quuz",
+  },
+}
+`;
+
+exports[`@js.properties namespaced properties with path 4`] = `
+Object {
+  "a": Object {
+    "b1": "a.b1",
+    "b2": Object {
+      "c1": "a.b2.c1",
+      "c2": "a.b2.c2",
+    },
+  },
+  "foo": Object {
+    "": "A.B.C",
+    "bar": "abc",
+    "baz": "def",
+  },
+  "qux": Object {
+    "quux": "quuz",
+  },
+}
+`;
+
+exports[`@js.properties namespaced.properties 1`] = `
+Object {
+  "a.b1": "a.b1",
+  "a.b2.c1": "a.b2.c1",
+  "a.b2.c2": "a.b2.c2",
+  "foo": "A.B.C",
+  "foo.bar": "abc",
+  "foo.baz": "def",
+  "qux.quux": "quuz",
+}
+`;
+
+exports[`@js.properties namespaced.properties 2`] = `
+Object {
+  "a.b1": "a.b1",
+  "a.b2.c1": "a.b2.c1",
+  "a.b2.c2": "a.b2.c2",
+  "foo": "A.B.C",
+  "foo.bar": "abc",
+  "foo.baz": "def",
+  "qux.quux": "quuz",
+}
+`;
+
+exports[`@js.properties namespaced.properties 3`] = `
+Object {
+  "a.b1": "a.b1",
+  "a.b2.c1": "a.b2.c1",
+  "a.b2.c2": "a.b2.c2",
+  "foo": "A.B.C",
+  "foo.bar": "abc",
+  "foo.baz": "def",
+  "qux.quux": "quuz",
+}
+`;
+
+exports[`@js.properties namespaced.properties 4`] = `
+Object {
+  "a.b1": "a.b1",
+  "a.b2.c1": "a.b2.c1",
+  "a.b2.c2": "a.b2.c2",
+  "foo": "A.B.C",
+  "foo.bar": "abc",
+  "foo.baz": "def",
+  "qux.quux": "quuz",
+}
+`;
+
+exports[`@js.properties separators.properties 1`] = `
+Object {
+  "foo1": "bar1",
+  "foo10": "bar10",
+  "foo11": "bar11",
+  "foo12": "",
+  "foo13": "",
+  "foo14": "",
+  "foo2": "bar2",
+  "foo3": "bar3",
+  "foo4": "bar4",
+  "foo5": "bar5",
+  "foo6": "bar6",
+  "foo7": "bar7",
+  "foo8": "bar8",
+  "foo9": "bar9",
+}
+`;
+
+exports[`@js.properties separators.properties 2`] = `
+Object {
+  "foo1": "bar1",
+  "foo10": "bar10",
+  "foo11": "bar11",
+  "foo12": "",
+  "foo13": "",
+  "foo14": "",
+  "foo2": "bar2",
+  "foo3": "bar3",
+  "foo4": "bar4",
+  "foo5": "bar5",
+  "foo6": "bar6",
+  "foo7": "bar7",
+  "foo8": "bar8",
+  "foo9": "bar9",
+}
+`;
+
+exports[`@js.properties separators.properties 3`] = `
+Object {
+  "foo1": "bar1",
+  "foo10": "bar10",
+  "foo11": "bar11",
+  "foo12": "",
+  "foo13": "",
+  "foo14": "",
+  "foo2": "bar2",
+  "foo3": "bar3",
+  "foo4": "bar4",
+  "foo5": "bar5",
+  "foo6": "bar6",
+  "foo7": "bar7",
+  "foo8": "bar8",
+  "foo9": "bar9",
+}
+`;
+
+exports[`@js.properties separators.properties 4`] = `
+Object {
+  "foo1": "bar1",
+  "foo10": "bar10",
+  "foo11": "bar11",
+  "foo12": "",
+  "foo13": "",
+  "foo14": "",
+  "foo2": "bar2",
+  "foo3": "bar3",
+  "foo4": "bar4",
+  "foo5": "bar5",
+  "foo6": "bar6",
+  "foo7": "bar7",
+  "foo8": "bar8",
+  "foo9": "bar9",
+}
+`;
+
+exports[`@js.properties trailing-whitespaces.properties 1`] = `
+Object {
+  "bar": "d	e	f	  	",
+  "baz": "ghi	 ",
+  "foo": "a b	c   ",
+}
+`;
+
+exports[`@js.properties trailing-whitespaces.properties 2`] = `
+Object {
+  "bar": "d	e	f	  	",
+  "baz": "ghi	 ",
+  "foo": "a b	c   ",
+}
+`;
+
+exports[`@js.properties trailing-whitespaces.properties 3`] = `
+Object {
+  "bar": "d	e	f	  	",
+  "baz": "ghi	 ",
+  "foo": "a b	c   ",
+}
+`;
+
+exports[`@js.properties trailing-whitespaces.properties 4`] = `
+Object {
+  "bar": "d	e	f	  	",
+  "baz": "ghi	 ",
+  "foo": "a b	c   ",
+}
+`;
+
+exports[`@js.properties wikipedia-example.properties 1`] = `
+Object {
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "language": "English",
+  "message": "Welcome to Wikipedia!",
+  "path": "c:\\\\wiki\\\\templates",
+  "tab": "	",
+  "website": "https://en.wikipedia.org/",
+}
+`;
+
+exports[`@js.properties wikipedia-example.properties 2`] = `
+Object {
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "language": "English",
+  "message": "Welcome to Wikipedia!",
+  "path": "c:\\\\wiki\\\\templates",
+  "tab": "	",
+  "website": "https://en.wikipedia.org/",
+}
+`;
+
+exports[`@js.properties wikipedia-example.properties 3`] = `
+Object {
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "language": "English",
+  "message": "Welcome to Wikipedia!",
+  "path": "c:\\\\wiki\\\\templates",
+  "tab": "	",
+  "website": "https://en.wikipedia.org/",
+}
+`;
+
+exports[`@js.properties wikipedia-example.properties 4`] = `
+Object {
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "language": "English",
+  "message": "Welcome to Wikipedia!",
+  "path": "c:\\\\wiki\\\\templates",
+  "tab": "	",
+  "website": "https://en.wikipedia.org/",
+}
+`;
+
+exports[`node-properties-parser test 1`] = `
+Object {
+  "another-test": ":: hihi",
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "lala": "ℊ the foo foo lalala;",
+  "language": "English",
+  "long-unicode": " 0009",
+  "message": "Welcome to Wikipedia!",
+  "null-prop": "",
+  "space separator": "key val 
+ three",
+  "tab": "	",
+  "website": "http://en.wikipedia.org/",
+}
+`;
+
+exports[`node-properties-parser test 2`] = `
+Object {
+  "another-test": ":: hihi",
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "lala": "ℊ the foo foo lalala;",
+  "language": "English",
+  "long-unicode": " 0009",
+  "message": "Welcome to Wikipedia!",
+  "null-prop": "",
+  "space separator": "key val 
+ three",
+  "tab": "	",
+  "website": "http://en.wikipedia.org/",
+}
+`;
+
+exports[`node-properties-parser test 3`] = `
+Object {
+  "another-test": ":: hihi",
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "lala": "ℊ the foo foo lalala;",
+  "language": "English",
+  "long-unicode": " 0009",
+  "message": "Welcome to Wikipedia!",
+  "null-prop": "",
+  "space separator": "key val 
+ three",
+  "tab": "	",
+  "website": "http://en.wikipedia.org/",
+}
+`;
+
+exports[`node-properties-parser test 4`] = `
+Object {
+  "another-test": ":: hihi",
+  "key with spaces": "This is the value that could be looked up with the key \\"key with spaces\\".",
+  "lala": "ℊ the foo foo lalala;",
+  "language": "English",
+  "long-unicode": " 0009",
+  "message": "Welcome to Wikipedia!",
+  "null-prop": "",
+  "space separator": "key val 
+ three",
+  "tab": "	",
+  "website": "http://en.wikipedia.org/",
+}
+`;
