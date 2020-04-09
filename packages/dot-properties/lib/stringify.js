@@ -1,28 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stringify = exports.toLines = exports.getFold = exports.commentWithPrefix = exports.pairWithSeparator = exports.escape = exports.escapeNonPrintable = void 0;
+exports.stringify = exports.toLines = exports.getFold = exports.commentWithPrefix = exports.pairWithSeparator = void 0;
 const ast_1 = require("./ast");
-function escapeNonPrintable(str, latin1) {
-    const re = latin1 !== false ? /[^\t\n\f\r -~\xa1-\xff]/g : /[\0-\b\v\x0e-\x1f]/g;
-    return String(str).replace(re, ch => {
-        const esc = ch.charCodeAt(0).toString(16);
-        return '\\u' + ('0000' + esc).slice(-4);
-    });
-}
-exports.escapeNonPrintable = escapeNonPrintable;
-function escape(str) {
-    return String(str)
-        .replace(/\\/g, '\\\\')
-        .replace(/\f/g, '\\f')
-        .replace(/\n/g, '\\n')
-        .replace(/\r/g, '\\r')
-        .replace(/\t/g, '\\t');
-}
-exports.escape = escape;
+const escape_1 = require("./escape");
 function pairWithSeparator(key, value, sep) {
-    return escape(key).replace(/[ =:]/g, '\\$&') +
+    return escape_1.escape(key).replace(/[ =:]/g, '\\$&') +
         sep +
-        escape(value).replace(/^ /, '\\ ');
+        escape_1.escape(value).replace(/^ /, '\\ ');
 }
 exports.pairWithSeparator = pairWithSeparator;
 function commentWithPrefix(str, prefix) { return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix); }
@@ -31,7 +15,7 @@ function getFold({ indent, latin1, lineWidth, newline }) {
     return line => {
         if (!lineWidth || lineWidth < 0)
             return line;
-        line = escapeNonPrintable(line, latin1);
+        line = escape_1.escapeNonPrintable(line, latin1);
         let start = 0;
         let split = undefined;
         for (let i = 0, ch = line[0]; ch; ch = line[(i += 1)]) {
