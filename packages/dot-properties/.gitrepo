@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/bluelovers/dot-properties.git
+	branch = master
+	commit = fad0be7a8954ea2239d26af6ea190fc0934441d3
+	parent = d51a6d1daade247e81318e31c107a97787afd595
+	method = merge
+	cmdver = 0.4.1
