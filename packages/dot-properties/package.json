@@ -9,13 +9,13 @@
     "bundle",
     "i18n"
   ],
-  "homepage": "https://github.com/eemeli/dot-properties#readme",
+  "homepage": "https://github.com/bluelovers/ws-dot-properties/tree/master/packages/dot-properties#readme",
   "bugs": {
-    "url": "https://github.com/eemeli/dot-properties/issues"
+    "url": "https://github.com/bluelovers/ws-dot-properties/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eemeli/dot-properties.git"
+    "url": "git+https://github.com/bluelovers/ws-dot-properties.git"
   },
   "license": "MIT",
   "author": "Eemeli Aro <eemeli@gmail.com>",
