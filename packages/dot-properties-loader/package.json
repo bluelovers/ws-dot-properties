@@ -1,6 +1,6 @@
 {
   "name": "dot-properties-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "load / save java.util.Properties.",
   "keywords": [
     "load",
@@ -53,7 +53,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "dot-properties2": "^1.0.2",
+    "dot-properties2": "^1.0.3",
     "ts-type": "^1.2.15"
   },
   "devDependencies": {
