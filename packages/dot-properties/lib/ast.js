@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EmptyLine = exports.Comment = exports.Pair = exports.Node = void 0;
+exports.isEmptyLineNode = exports.isCommentNode = exports.isPairNode = exports.EmptyLine = exports.Comment = exports.Pair = exports.Node = void 0;
 class Node {
     constructor(type, range) {
         this.type = type;
@@ -37,4 +37,16 @@ class EmptyLine extends Node {
     }
 }
 exports.EmptyLine = EmptyLine;
+function isPairNode(node) {
+    return (node === null || node === void 0 ? void 0 : node.type) === 'PAIR' || (node instanceof Pair);
+}
+exports.isPairNode = isPairNode;
+function isCommentNode(node) {
+    return (node === null || node === void 0 ? void 0 : node.type) === 'COMMENT' || (node instanceof Comment);
+}
+exports.isCommentNode = isCommentNode;
+function isEmptyLineNode(node) {
+    return (node === null || node === void 0 ? void 0 : node.type) === 'EMPTY_LINE' || (node instanceof EmptyLine);
+}
+exports.isEmptyLineNode = isEmptyLineNode;
 //# sourceMappingURL=ast.js.map

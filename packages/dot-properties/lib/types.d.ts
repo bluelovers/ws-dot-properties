@@ -13,7 +13,7 @@ export interface IStringifyOptions {
     /**
      * tabs are also valid
      */
-    indent?: '    ' | string;
+    indent?: '    ' | string | number;
     /**
      * should have at most one = or :
      */

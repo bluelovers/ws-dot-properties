@@ -23,6 +23,7 @@ export declare class DotProperties {
         };
         lines: (string | string[])[];
     };
+    valueOf(): (string | string[])[];
     stringify(options?: IStringifyOptions): string;
     save(opts?: {
         file?: string;

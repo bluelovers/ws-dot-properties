@@ -116,14 +116,19 @@ export class DotProperties
 		}
 	}
 
-	stringify(options?: IStringifyOptions)
+	valueOf()
 	{
 		const { lines, tree } = this._lines();
 
-		let newLines = [
+		return [
 			...lines,
 			...Object.entries(tree),
-		].reduce((newLines, line) => {
+		] as ILine[]
+	}
+
+	stringify(options?: IStringifyOptions)
+	{
+		let newLines = this.valueOf().reduce((newLines, line) => {
 
 			if (typeof line === 'string')
 			{

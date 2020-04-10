@@ -1,13 +1,14 @@
-import { IStringifyOptions } from './types';
+import { INodes } from './ast';
+import { IStringifyOptions, ILine } from './types';
 export declare function pairWithSeparator(key: string, value: string, sep: string, latin1?: boolean): string;
 export declare function commentWithPrefix(str: any, prefix: any): any;
-export declare function getFold({ indent, latin1, lineWidth, newline }: {
-    indent: any;
-    latin1: any;
-    lineWidth: any;
-    newline: any;
-}): (line: any) => any;
-export declare function toLines(obj: any, pathSep: any, defaultKey: any, prefix?: string): any;
+export declare function getFold({ indent, latin1, lineWidth, newline, }: {
+    indent: string;
+    latin1: boolean;
+    lineWidth: number;
+    newline: string;
+}): (line: string) => string;
+export declare function toLines(obj: Record<string, any>, pathSep: string, defaultKey: string, prefix?: string): (ILine | INodes)[];
 /**
  * Stringifies a hierarchical object or an array of lines to .properties format
  *
@@ -24,5 +25,5 @@ export declare function toLines(obj: any, pathSep: any, defaultKey: any, prefix?
  * considered the default, and set as the value of a key corresponding to its
  * parent object's path.
  */
-export declare function stringify(input: any, { commentPrefix, defaultKey, indent, keySep, latin1, lineWidth, newline, pathSep, }?: IStringifyOptions): string;
+export declare function stringify(input: Record<string, any> | ILine[], { commentPrefix, defaultKey, indent, keySep, latin1, lineWidth, newline, pathSep, }?: IStringifyOptions): string;
 export default stringify;

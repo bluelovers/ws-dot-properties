@@ -86,12 +86,15 @@ class DotProperties {
             lines,
         };
     }
-    stringify(options) {
+    valueOf() {
         const { lines, tree } = this._lines();
-        let newLines = [
+        return [
             ...lines,
             ...Object.entries(tree),
-        ].reduce((newLines, line) => {
+        ];
+    }
+    stringify(options) {
+        let newLines = this.valueOf().reduce((newLines, line) => {
             if (typeof line === 'string') {
                 newLines.push(line);
             }

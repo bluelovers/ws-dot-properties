@@ -45,3 +45,17 @@ export class EmptyLine extends Node<'EMPTY_LINE', [number, number]>
 	}
 }
 
+export function isPairNode(node: INodes | any): node is Pair
+{
+	return node?.type === 'PAIR' || (node instanceof Pair)
+}
+
+export function isCommentNode(node: INodes | any): node is Comment
+{
+	return node?.type === 'COMMENT' || (node instanceof Comment)
+}
+
+export function isEmptyLineNode(node: INodes | any): node is EmptyLine
+{
+	return node?.type === 'EMPTY_LINE' || (node instanceof EmptyLine)
+}

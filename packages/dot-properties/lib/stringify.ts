@@ -1,5 +1,5 @@
-import { Pair, Comment, EmptyLine } from './ast';
-import { IStringifyOptions } from './types';
+import { Pair, Comment, EmptyLine, INodes } from './ast';
+import { IStringifyOptions, ILine } from './types';
 import { escape, escapeNonPrintable } from './escape';
 
 export function pairWithSeparator(key: string, value: string, sep: string, latin1?: boolean)
@@ -14,9 +14,19 @@ export function commentWithPrefix(str, prefix)
 	return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix);
 }
 
-export function getFold({ indent, latin1, lineWidth, newline })
+export function getFold({
+	indent,
+	latin1,
+	lineWidth,
+	newline,
+}: {
+	indent: string,
+	latin1: boolean,
+	lineWidth: number,
+	newline: string,
+})
 {
-	return line =>
+	return (line: string) =>
 	{
 		if (!lineWidth || lineWidth < 0) return line
 		line = escapeNonPrintable(line, latin1)
@@ -86,25 +96,26 @@ export function getFold({ indent, latin1, lineWidth, newline })
 	};
 }
 
-export function toLines(obj, pathSep, defaultKey, prefix = '')
+export function toLines(obj: Record<string, any>, pathSep: string, defaultKey: string, prefix = ''): (ILine | INodes)[]
 {
-	return Object.keys(obj).reduce((lines, key) =>
-	{
-		const value = obj[key]
-		if (value && typeof value === 'object')
+	return Object.keys(obj)
+		.reduce((lines, key) =>
 		{
-			return lines.concat(
-				toLines(value, pathSep, defaultKey, prefix + key + pathSep),
-			)
-		}
-		else
-		{
-			const k =
-				key === defaultKey ? prefix.slice(0, -pathSep.length) : prefix + key
-			lines.push([k, value])
-			return lines
-		}
-	}, [])
+			const value = obj[key]
+			if (value && typeof value === 'object')
+			{
+				return lines.concat(
+					toLines(value, pathSep, defaultKey, prefix + key + pathSep),
+				)
+			}
+			else
+			{
+				const k =
+					key === defaultKey ? prefix.slice(0, -pathSep.length) : prefix + key
+				lines.push([k, value])
+				return lines
+			}
+		}, [] as (ILine | INodes)[])
 }
 
 /**
@@ -124,7 +135,7 @@ export function toLines(obj, pathSep, defaultKey, prefix = '')
  * parent object's path.
  */
 export function stringify(
-	input,
+	input: Record<string, any> | ILine[],
 	{
 		commentPrefix = '# ',
 		defaultKey = '',
@@ -139,6 +150,12 @@ export function stringify(
 {
 	if (!input) return ''
 	if (!Array.isArray(input)) input = toLines(input, pathSep, defaultKey)
+
+	if (typeof indent === 'number')
+	{
+		indent = ' '.repeat(indent)
+	}
+
 	const foldLine = getFold({
 		indent,
 		latin1,
@@ -151,7 +168,7 @@ export function stringify(
 		lineWidth,
 		newline,
 	})
-	return input
+	return (input as (ILine | INodes)[])
 		.map(line =>
 		{
 			switch (true)
@@ -159,13 +176,14 @@ export function stringify(
 				case !line:
 				case line instanceof EmptyLine:
 					return ''
-
 				case Array.isArray(line):
 					return foldLine(pairWithSeparator(line[0], line[1], keySep, latin1))
 				case line instanceof Pair:
+					// @ts-ignore
 					return foldLine(pairWithSeparator(line.key, line.value, keySep, latin1))
 
 				case line instanceof Comment:
+					// @ts-ignore
 					return foldComment(commentWithPrefix(line.comment, commentPrefix))
 				default:
 					return foldComment(commentWithPrefix(String(line), commentPrefix))

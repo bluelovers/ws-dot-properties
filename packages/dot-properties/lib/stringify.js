@@ -13,8 +13,8 @@ function commentWithPrefix(str, prefix) {
     return str.replace(/^\s*([#!][ \t\f]*)?/g, prefix);
 }
 exports.commentWithPrefix = commentWithPrefix;
-function getFold({ indent, latin1, lineWidth, newline }) {
-    return line => {
+function getFold({ indent, latin1, lineWidth, newline, }) {
+    return (line) => {
         if (!lineWidth || lineWidth < 0)
             return line;
         line = escape_1.escapeNonPrintable(line, latin1);
@@ -81,7 +81,8 @@ function getFold({ indent, latin1, lineWidth, newline }) {
 }
 exports.getFold = getFold;
 function toLines(obj, pathSep, defaultKey, prefix = '') {
-    return Object.keys(obj).reduce((lines, key) => {
+    return Object.keys(obj)
+        .reduce((lines, key) => {
         const value = obj[key];
         if (value && typeof value === 'object') {
             return lines.concat(toLines(value, pathSep, defaultKey, prefix + key + pathSep));
@@ -115,6 +116,9 @@ function stringify(input, { commentPrefix = '# ', defaultKey = '', indent = '   
         return '';
     if (!Array.isArray(input))
         input = toLines(input, pathSep, defaultKey);
+    if (typeof indent === 'number') {
+        indent = ' '.repeat(indent);
+    }
     const foldLine = getFold({
         indent,
         latin1,
@@ -136,8 +140,10 @@ function stringify(input, { commentPrefix = '# ', defaultKey = '', indent = '   
             case Array.isArray(line):
                 return foldLine(pairWithSeparator(line[0], line[1], keySep, latin1));
             case line instanceof ast_1.Pair:
+                // @ts-ignore
                 return foldLine(pairWithSeparator(line.key, line.value, keySep, latin1));
             case line instanceof ast_1.Comment:
+                // @ts-ignore
                 return foldComment(commentWithPrefix(line.comment, commentPrefix));
             default:
                 return foldComment(commentWithPrefix(String(line), commentPrefix));
