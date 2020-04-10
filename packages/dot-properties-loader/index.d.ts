@@ -3,7 +3,7 @@
  * Created by user on 2020/4/9.
  */
 import { ITSRequireAtLeastOne } from 'ts-type';
-import { ITree, IStringifyOptions } from 'dot-properties2';
+import { ITree, IStringifyOptions, ILine } from 'dot-properties2';
 export declare class DotProperties {
     #private;
     file: string;
@@ -12,7 +12,7 @@ export declare class DotProperties {
         source?: string | Buffer;
     }>);
     get tree(): ITree;
-    get lines(): (string | string[])[];
+    get lines(): ILine[];
     get(key: string, defaultValue?: string): string | ITree;
     set(key: string, value: string): this;
     toString(): string;
@@ -21,9 +21,12 @@ export declare class DotProperties {
         tree: {
             [x: string]: string | ITree;
         };
-        lines: (string | string[])[];
+        lines: ILine[];
     };
-    valueOf(): (string | string[])[];
+    /**
+     * get lines and append data to lines
+     */
+    valueOf(): ILine[];
     stringify(options?: IStringifyOptions): string;
     save(opts?: {
         file?: string;

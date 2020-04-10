@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isEmptyLineNode = exports.isCommentNode = exports.isPairNode = exports.EmptyLine = exports.Comment = exports.Pair = exports.Node = void 0;
+exports.isNode = exports.isEmptyLineNode = exports.isCommentNode = exports.isPairNode = exports.EmptyLine = exports.Comment = exports.Pair = exports.Node = void 0;
 class Node {
     constructor(type, range) {
         this.type = type;
@@ -49,4 +49,8 @@ function isEmptyLineNode(node) {
     return (node === null || node === void 0 ? void 0 : node.type) === 'EMPTY_LINE' || (node instanceof EmptyLine);
 }
 exports.isEmptyLineNode = isEmptyLineNode;
+function isNode(node) {
+    return (node instanceof Node);
+}
+exports.isNode = isNode;
 //# sourceMappingURL=ast.js.map

@@ -86,6 +86,9 @@ class DotProperties {
             lines,
         };
     }
+    /**
+     * get lines and append data to lines
+     */
     valueOf() {
         const { lines, tree } = this._lines();
         return [
@@ -94,16 +97,7 @@ class DotProperties {
         ];
     }
     stringify(options) {
-        let newLines = this.valueOf().reduce((newLines, line) => {
-            if (typeof line === 'string') {
-                newLines.push(line);
-            }
-            else {
-                newLines.push(line);
-            }
-            return newLines;
-        }, []);
-        return dot_properties2_1.stringify(newLines, {
+        return dot_properties2_1.stringify(this.valueOf(), {
             lineWidth: null,
             ...(options || {}),
         });

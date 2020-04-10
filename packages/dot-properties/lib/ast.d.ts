@@ -21,3 +21,4 @@ export declare class EmptyLine extends Node<'EMPTY_LINE', [number, number]> {
 export declare function isPairNode(node: INodes | any): node is Pair;
 export declare function isCommentNode(node: INodes | any): node is Comment;
 export declare function isEmptyLineNode(node: INodes | any): node is EmptyLine;
+export declare function isNode(node: INodes | any): node is INodes;

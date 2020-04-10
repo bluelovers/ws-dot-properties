@@ -59,3 +59,8 @@ export function isEmptyLineNode(node: INodes | any): node is EmptyLine
 {
 	return node?.type === 'EMPTY_LINE' || (node instanceof EmptyLine)
 }
+
+export function isNode(node: INodes | any): node is INodes
+{
+	return (node instanceof Node)
+}
