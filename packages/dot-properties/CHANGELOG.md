@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-dot-properties/compare/dot-properties2@1.0.3...dot-properties2@1.0.4) (2020-04-10)
+
+**Note:** Version bump only for package dot-properties2
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-dot-properties/compare/dot-properties2@1.0.2...dot-properties2@1.0.3) (2020-04-10)
 
 
