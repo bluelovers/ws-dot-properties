@@ -1,8 +1,6 @@
 import fs from 'fs';
-
 import path from 'path';
-
-import { Pair, parse, parseLines, stringify } from '../index';
+import { Pair, parse, parseLines, stringify } from '..';
 
 describe('lines', () =>
 {

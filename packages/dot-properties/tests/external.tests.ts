@@ -1,8 +1,6 @@
 import fs from 'fs';
-
 import path from 'path';
-
-import { parse, parseLines, stringify } from '../index';
+import { parse, parseLines, stringify } from '..';
 
 function testCase({
 	name,

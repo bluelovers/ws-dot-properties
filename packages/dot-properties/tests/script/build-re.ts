@@ -2,7 +2,7 @@ import rewritePattern from 'regexpu-core';
 import { outputFile } from 'fs-extra';
 import { join } from 'path';
 
-const reNonLatin1 = regexpEscape(/([^\P{L}\p{ASCII}\x00-\xFF])/ug);
+const reNonLatin1 = regexpEscape(/([^\p{ASCII}\x00-\xFF])/ug);
 
 const reNonPrintable1 = regexpEscape(/[^\t\n\f\r -~\xa1-\xff]/ug);
 
